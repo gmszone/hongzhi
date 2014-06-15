@@ -6,6 +6,15 @@ require 'nokogiri'
 class BlogHelper
   def getdata(query)
     result = []
+    if query.size <= 1
+      result << {
+          :title => "对不起，您所搜索的范围过于庞大",
+          :description => "请试着缩小搜索范围,如'极客爱情'",
+          :picture_url => "http://www.xuntayizhan.com/error.jpg",
+          :url => "https://www.xuntayizhan.com/about/",
+      }
+      return result
+    end
     response = Net::HTTP.get_response("www.xuntayizhan.com","/?wpapi=search&dev=1&keyword="+query)
     posts = (JSON.parse response.body)['posts']
     count = (JSON.parse response.body)['count']
