@@ -2,6 +2,7 @@ require 'rubygems'
 require 'json'
 require 'net/http'
 require 'nokogiri'
+require './get_rss'
 
 class BlogHelper
   def getdata(query)
@@ -43,12 +44,8 @@ class BlogHelper
         }
     end
     if result.size == 0
-        result << {
-        :title => "对不起，找不到相关内容",
-        :description => "若您有兴趣，可以向我们提供相关文章",
-        :picture_url => "http://www.xuntayizhan.com/404.jpg",
-        :url => "https://jinshuju.net/f/M2UDXi",
-        }
+      news = Get_RSS.new
+      result = news.get_new()
     end
     p result
     result
