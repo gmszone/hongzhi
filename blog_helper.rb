@@ -8,8 +8,8 @@ class BlogHelper
     result = []
     if query.size <= 1
       result << {
-          :title => "对不起，您所搜索的范围过于庞大",
-          :description => "请试着缩小搜索范围,如'极客爱情'",
+          :title => "臣妾，做不到~~",
+          :description => "对不起，你所搜索的范围过于庞大，服务器君做不到。请试着精确搜索内容,如'极客爱情'",
           :picture_url => "http://www.xuntayizhan.com/error.jpg",
           :url => "https://www.xuntayizhan.com/about/",
       }
