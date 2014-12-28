@@ -5,7 +5,7 @@ require 'nokogiri'
 class Get_RSS
   def get_new
     result = []
-    url = 'rss.xml'
+    url = 'http://www.xuntayizhan.com/rss'
     open(url) do |rss|
       feed = RSS::Parser.parse(rss)
       feed.items.each do |item|
