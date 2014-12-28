@@ -19,7 +19,7 @@ class BlogHelper
     response = Net::HTTP.get_response("www.xuntayizhan.com","/?wpapi=search&dev=1&keyword="+query)
     posts = (JSON.parse response.body)['posts']
     count = (JSON.parse response.body)['count']
-    posts = posts.take(8)
+posts = posts.take(8)
     posts.each do |post,index|
       image_req = 'http://www.xuntayizhan.com/xt.jpg'
       post_id = post['id']
